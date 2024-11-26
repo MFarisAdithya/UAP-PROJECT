@@ -9,6 +9,9 @@ using namespace std;
 
 void point(bool exist,string ul);
 void login();
+void registration();
+void cb();
+void loading(int hw);
 
 
 int main() {
@@ -185,4 +188,59 @@ void point(bool exist,string UserLog) {
     getch();
     cb();
     
+}
+
+void cb(){
+	clear();
+	box(stdscr,0,0);
+}
+
+void cb(){
+	clear();
+	box(stdscr,0,0);
+}
+void loading(int hw) {
+	cb();
+	mvprintw(10, 30, "Loading...");
+	for (int i = 0; i < hw; i++) {
+		for (int i = 0; i < 25; i++) {
+	        mvaddch(12, 30 + i, (char)200u); // Menambahkan karakter 'barl'
+	        refresh();
+	        usleep(1500); // Delay 150ms
+	    }
+		 mvprintw(12, 30, "                         ");
+	}
+	cb();
+}
+
+void registration() {
+	cb();
+    ofstream myFile, accList;
+    string userReg, passReg;
+	char username[100];
+	char password[100];
+    mvprintw(9,45, "----------->REGISTER<-----------");
+    mvprintw(11,45, "Enter username: ");
+	echo();
+    mvgetnstr(11,61, username, 99);
+    mvprintw(12,45,"Enter Password: ");
+    mvgetnstr(12,61, password, 99);
+    
+	string me = username;
+	string mu = password;
+    // Membuat file untuk pengguna
+    myFile.open(me + ".txt");
+    myFile << mu << endl;  
+    myFile << 0;               
+    myFile.close();
+
+    // Menambahkan username ke daftar akun
+    accList.open("ListAccount.txt", ios::app);
+    accList << me << endl;
+    accList.close();
+    cb();
+    loading(3);
+    mvprintw(13,45,"Registration Successfully");
+    getch();
+    cb();
 }
