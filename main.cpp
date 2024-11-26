@@ -195,10 +195,6 @@ void cb(){
 	box(stdscr,0,0);
 }
 
-void cb(){
-	clear();
-	box(stdscr,0,0);
-}
 void loading(int hw) {
 	cb();
 	mvprintw(10, 30, "Loading...");
