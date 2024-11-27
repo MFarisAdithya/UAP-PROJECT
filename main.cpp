@@ -156,9 +156,9 @@ void point(bool exist,string UserLog) {
             scoreCheck >> currentScore;      
             scoreCheck.close();
 
-            mvprintw(16,45,"Input top score: ");
+            mvprintw(16,55,"Input top score: ");
             echo();
-            mvgetnstr(16,61,topScore,99);
+            mvgetnstr(16,71,topScore,99);
             noecho();
 			cb();
             // Update skor jika skor baru lebih tinggi
@@ -199,7 +199,7 @@ void loading(int hw) {
 	cb();
 	mvprintw(10, 55, "Loading...");
 	for (int i = 0; i < hw; i++) {
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 55; i++) {
 	        mvaddch(12, 30 + i, (char)200u); // Menambahkan karakter 'barl'
 	        refresh();
 	        usleep(1500); // Delay 150ms
