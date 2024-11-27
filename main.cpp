@@ -37,7 +37,7 @@ int main() {
          // Menampilkan menu
 		for (int i = 0; i < 3; i++) {
 			if (pilihanTerpilih == i) attron(A_REVERSE);
-			mvprintw(i+12,40, opsi[i]);
+			mvprintw(i+12,55, opsi[i]);
 			refresh();
 			if (pilihanTerpilih == i) attroff(A_REVERSE);
 		}
@@ -141,7 +141,7 @@ void point(bool exist,string UserLog) {
 	 if (exist) {
 
         if (exist) {
-            mvprintw(15,45,"Login successful!");
+            mvprintw(13,55,"Login successful!");
             
 
             // Proses skor
@@ -168,10 +168,10 @@ void point(bool exist,string UserLog) {
                 scoreFile << topScore;           // Simpan skor baru
                 scoreFile.close();
                 loading(3);
-                mvprintw(19,45,"Your Top Score Is: %s",topScore);
+                mvprintw(14,55,"Your Top Score Is: %s",topScore);
             } else {
             	loading(3);
-                mvprintw(19,45,"Your Top Score: %d", currentScore);
+                mvprintw(14,55,"Your Top Score: %d", currentScore);
             }
         } else {
         	loading(3);
@@ -197,14 +197,14 @@ void cb(){
 
 void loading(int hw) {
 	cb();
-	mvprintw(10, 30, "Loading...");
+	mvprintw(10, 55, "Loading...");
 	for (int i = 0; i < hw; i++) {
 		for (int i = 0; i < 25; i++) {
 	        mvaddch(12, 30 + i, (char)200u); // Menambahkan karakter 'barl'
 	        refresh();
 	        usleep(1500); // Delay 150ms
 	    }
-		 mvprintw(12, 30, "                         ");
+		 mvprintw(12, 30, "                                                          ");
 	}
 	cb();
 }
@@ -235,7 +235,7 @@ void registration() {
     accList << me << endl;
     accList.close();
     cb();
-    loading(3);
+    loading(1);
     mvprintw(13,45,"Registration Successfully");
     getch();
     cb();
